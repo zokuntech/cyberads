@@ -11,8 +11,7 @@ import { ProfileForm } from "../components/form";
 import { FaClipboardList } from "react-icons/fa";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { BsEmojiHeartEyes } from "react-icons/bs";
-import { GoogleTagManager } from '@next/third-parties/google' 
-
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "../styles/hero.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -22,7 +21,6 @@ import Link from "next/link";
 export default function Home() {
   useEffect(() => {
     init({ orgId: "o-20D7ZB-na1" });
-    <GoogleTagManager gtmId="AW-808416131" />
   }, []);
 
   // let's make a function that receive the specific element_id as string and scroll into that element_id
@@ -67,7 +65,6 @@ export default function Home() {
         />
         <meta property="og:url" content="https://www.zokunads.com" />
         <meta property="og:type" content="website" />
-       
       </Head>
 
       <main className="flex  flex-col items-center justify-between bg-stone-900">
@@ -264,6 +261,7 @@ export default function Home() {
           />
         </section>
         <Toaster />
+        <GoogleTagManager gtmId="AW-808416131" />
       </main>
     </>
   );
