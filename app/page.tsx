@@ -20,7 +20,7 @@ export default function Home() {
   const value = process.env.NEXT_PUBLIC_FULLSTORY_ORG_ID;
 
   useEffect(() => {
-    init({ orgId: "o-20D7ZB-na1s" });
+    init({ orgId: "o-20D7ZB-na1" });
   }, [value]);
 
   return (
