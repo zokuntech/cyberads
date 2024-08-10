@@ -16,30 +16,57 @@ import { useToast } from "@/components/ui/use-toast";
 import "../styles/hero.css";
 import { Toaster } from "@/components/ui/toaster";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
     init({ orgId: "o-20D7ZB-na1" });
   }, []);
 
+  // let's make a function that receive the specific element_id as string and scroll into that element_id
+  const scrolltoHash = function (element_id: string) {
+    const element = document.getElementById(element_id);
+    element?.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
+
   return (
     <>
       <Head>
         <title>
-          Cybertruck Advertising - Boost Your Brand's Visibility in Phoenix
+          Cybertruck Advertising in Phoenix - Boost Your Brand's Visibility with
+          Mobile Ads
         </title>
         <meta
           name="description"
-          content="Advertise on a high-visibility Cybertruck in the Phoenix area. Eco-friendly, exclusive advertising space on a unique vehicle. Trackable ad campaigns."
+          content="Advertise on a high-visibility Cybertruck in Phoenix. Reach your target audience with eco-friendly, mobile billboard advertising. Trackable ad campaigns to maximize your brand's impact."
         />
         <meta
           name="keywords"
-          content="Cybertruck advertising, Phoenix advertising, mobile ads, eco-friendly ads, trackable ad campaigns"
+          content="Cybertruck advertising Phoenix, mobile billboard advertising, Tesla truck ads, high-visibility ads Phoenix, eco-friendly advertising, Phoenix business marketing, outdoor advertising Phoenix, electric vehicle ads, unique advertising space, mobile marketing Phoenix"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://yourwebsite.com" />
+        <link rel="canonical" href="https://www.zokunads.com" />
+        <meta
+          property="og:title"
+          content="Cybertruck Advertising in Phoenix - Boost Your Brand's Visibility with Mobile Ads"
+        />
+        <meta
+          property="og:description"
+          content="Boost your brand's visibility with exclusive advertising on a Tesla Cybertruck in Phoenix. Eco-friendly, high-impact, and trackable advertising solutions."
+        />
+        <meta
+          property="og:image"
+          content="https://www.zokunads.com/og-image.jpg"
+        />
+        <meta property="og:url" content="https://www.zokunads.com" />
+        <meta property="og:type" content="website" />
       </Head>
+
       <main className="flex  flex-col items-center justify-between bg-stone-900">
         <section className="heroImage bg-white w-full h-screen md:h-[600px] lg:h-screen grid grid-rows-5 mb-10">
           <div className="w-full h-full bg-black/30 fixed" />
@@ -51,7 +78,10 @@ export default function Home() {
               Advertise on a high-visibility Cybertruck around the Phoenix
               valley
             </h2>
-            <button className="bg-black px-12 py-4 text-xl text-white border-2 border-white font-medium mt-6 hover:bg-white hover:text-black">
+            <button
+              onClick={() => scrolltoHash("contact")}
+              className="bg-black px-12 py-4 text-xl text-white border-2 border-white font-medium mt-6 hover:bg-white hover:text-black"
+            >
               Learn More
             </button>
           </div>
@@ -206,8 +236,11 @@ export default function Home() {
         />
       </section> */}
 
-        <section className="w-full h-[900px] lg:h-screen flex bg-black items-center justify-center mb-10 flex-col-reverse lg:flex-row">
-          <div className="lg:w-1/2 sm:h-2/5 md:h-1/2 h-1/2 w-full h-1/2 lg:h-full flex items-center justify-center flex-col cursor-default z-10">
+        <section
+          id="contact"
+          className="w-full h-[900px] lg:h-screen flex bg-black items-center justify-center mb-10 flex-col-reverse lg:flex-row"
+        >
+          <div className="lg:w-1/2  md:h-1/2 w-full h-1/2 lg:h-full flex items-center justify-center flex-col cursor-default z-10">
             <h2 className="lg:text-4xl xl:text-5xl text-3xl 2xl:text-6xl font-bold text-white capitalize leading-tight 2xl:leading-snug z-10 lg:w-[80%] w-[90%] 2xl:w-[70%] mb-4 xl:mb-8">
               Reserve Your Advertising Space
             </h2>
@@ -219,7 +252,7 @@ export default function Home() {
           </div>
           <Image
             src={Contact}
-            className="lg:h-full lg:w-1/2 md:h-1/2  object-cover z-10 w-full h-1/2 sm:h-3/5 md:h-2/3"
+            className="lg:h-full lg:w-1/2 md:h-1/2  object-cover z-10 w-full h-1/2 sm:h-1/2"
             alt="Tesla cybertruck driving down the street in pheoinx arizona with people staring at it"
           />
         </section>
