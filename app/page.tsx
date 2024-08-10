@@ -17,11 +17,9 @@ import "../styles/hero.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
-  const value = process.env.NEXT_PUBLIC_FULLSTORY_ORG_ID;
-
   useEffect(() => {
     init({ orgId: "o-20D7ZB-na1" });
-  }, [value]);
+  }, []);
 
   return (
     <main className="flex  flex-col items-center justify-between bg-stone-900">
