@@ -68,8 +68,8 @@ export default function PolicyPopover() {
         </li>
         <li style={{ marginBottom: "10px" }}>
           <p>
-            <strong>Company</strong> (referred to as either "the Company", "We",
-            "Us" or "Our" in this Agreement) refers to ZokunTechnologies, 1713 N
+            <strong>Company</strong> (referred to as either `the Company`, `We"`
+            `Us` or `Our` in this Agreement) refers to ZokunTechnologies, 1713 N
             114th Ave.
           </p>
         </li>
