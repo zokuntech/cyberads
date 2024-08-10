@@ -1,8 +1,11 @@
+"use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import Intro from "../public/intro.png";
 import Visibility from "../public/visibility.png";
 import Contact from "../public/contact.png";
 import Eco from "../public/eco.jpg";
+import { FullStory, init } from "@fullstory/browser";
 import GPS from "../public/gps.png";
 import { ProfileForm } from "../components/form";
 import { FaClipboardList } from "react-icons/fa";
@@ -14,6 +17,11 @@ import "../styles/hero.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
+  useEffect(() => {
+    const value = process.env.NEXT_PUBLIC_FULLSTORY_ORG_ID;
+    if (value) init({ orgId: value });
+  }, []);
+
   return (
     <main className="flex  flex-col items-center justify-between bg-stone-900">
       <section className="heroImage bg-white w-full h-screen md:h-[600px] lg:h-screen grid grid-rows-5 mb-10">
