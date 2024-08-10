@@ -20,7 +20,7 @@ export default function Home() {
   const value = process.env.NEXT_PUBLIC_FULLSTORY_ORG_ID;
 
   useEffect(() => {
-    if (value) init({ orgId: value });
+    init({ orgId: value || "" });
   }, [value]);
 
   return (
