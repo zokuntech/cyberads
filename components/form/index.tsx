@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import PolicyPopover from "@/components/policyPopover";
 import { toast } from "../ui/use-toast";
 import { useState } from "react";
+import { saveIntoDB } from "@/lib/lead";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -41,12 +42,24 @@ export function ProfileForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitted(true);
-    toast({
-      title: "Be on the look out",
-      description: "There was a problem with your request.",
-    });
+    const res = await saveIntoDB(values.email);
+
+    console.log(res);
+    if (res.status === 200) {
+      toast({
+        title: "Be on the look out",
+        description: "There was a problem with your request.",
+      });
+    } else {
+      toast({
+        title: "Uh oh there was a problem",
+        description: "There was a problem with your request.",
+        variant: "destructive",
+      });
+      throw new Error("error saving contact info");
+    }
   }
 
   return (
@@ -96,7 +109,6 @@ export function ProfileForm() {
             />
             <Button
               type="submit"
-              onClick={() => {}}
               className="mt-6 rounded-none px-12 bg-gradient-to-r text-black h-14 cursor-pointer from-orange-600 to-purple-600 text-white text-lg hover:from-black hover:to-black hover:border-white hover:border-2"
             >
               Submit
