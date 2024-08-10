@@ -11,7 +11,8 @@ import { ProfileForm } from "../components/form";
 import { FaClipboardList } from "react-icons/fa";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { BsEmojiHeartEyes } from "react-icons/bs";
-import { useToast } from "@/components/ui/use-toast";
+import { GoogleTagManager } from '@next/third-parties/google' 
+
 
 import "../styles/hero.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -21,6 +22,7 @@ import Link from "next/link";
 export default function Home() {
   useEffect(() => {
     init({ orgId: "o-20D7ZB-na1" });
+    <GoogleTagManager gtmId="AW-808416131" />
   }, []);
 
   // let's make a function that receive the specific element_id as string and scroll into that element_id
@@ -65,6 +67,7 @@ export default function Home() {
         />
         <meta property="og:url" content="https://www.zokunads.com" />
         <meta property="og:type" content="website" />
+       
       </Head>
 
       <main className="flex  flex-col items-center justify-between bg-stone-900">
@@ -156,6 +159,8 @@ export default function Home() {
         <section className="w-full h-[700px] lg:h-screen flex bg-black items-center justify-center mb-10 flex-col lg:flex-row">
           <Image
             src={GPS}
+            // height={100}
+            // width={100}
             className="lg:h-full lg:w-1/2 object-cover z-10 w-full h-1/2 sm:h-3/5 md:h-2/3"
             alt="Tesla cybertruck driving down the street in pheoinx arizona with people staring at it"
           />
@@ -252,6 +257,8 @@ export default function Home() {
           </div>
           <Image
             src={Contact}
+            // width={100}
+            // height={100}
             className="lg:h-full lg:w-1/2 md:h-1/2  object-cover z-10 w-full h-1/2 sm:h-1/2"
             alt="Tesla cybertruck driving down the street in pheoinx arizona with people staring at it"
           />
