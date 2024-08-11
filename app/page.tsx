@@ -11,7 +11,7 @@ import { ProfileForm } from "../components/form";
 import { FaClipboardList } from "react-icons/fa";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { BsEmojiHeartEyes } from "react-icons/bs";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, sendGTMEvent } from "@next/third-parties/google";
 
 import "../styles/hero.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -21,6 +21,14 @@ import Link from "next/link";
 export default function Home() {
   useEffect(() => {
     init({ orgId: "o-20D7ZB-na1" });
+    //   <script>
+    //   gtag('event', 'conversion', {'send_to': 'AW-808416131/tuXTCJD1w8kZEIPnvYED'});
+    // </script>
+    sendGTMEvent({
+      event: "conversion",
+      send_to: "AW-808416131/tuXTCJD1w8kZEIPnvYED",
+      value: "value",  // Replace 'value' with the actual value you want to send
+    });
   }, []);
 
   // let's make a function that receive the specific element_id as string and scroll into that element_id
@@ -65,6 +73,24 @@ export default function Home() {
         />
         <meta property="og:url" content="https://www.zokunads.com" />
         <meta property="og:type" content="website" />
+
+
+{/* <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '886752748745739');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=886752748745739&ev=PageView&noscript=1"
+/></noscript> */}
+
       </Head>
 
       <main className="flex  flex-col items-center justify-between bg-stone-900">
