@@ -1,13 +1,1 @@
-.heroImage {
-  background-image: url("../public/ad.png");
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-
-@media screen and (max-width: 400px) {
-  .heroImage {
-    background-size: fill;
-    background-position: bottom;
-  }
-}
+.heroImage{background-image:url("../public/ad.webp");background-size:cover;background-position:top;background-repeat:no-repeat}@media screen and (max-width:400px){.heroImage{background-size:fill;background-position:bottom}}
