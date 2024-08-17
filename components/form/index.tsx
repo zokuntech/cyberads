@@ -64,11 +64,6 @@ export function ProfileForm() {
 
   return (
     <>
-      {/* {isSubmitted ? (
-        <div className="text-white mt-8 text-left text-4xl w-[80%]">
-          Thank you! We'll be in touch with you soon
-        </div>
-      ) : ( */}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -84,6 +79,7 @@ export function ProfileForm() {
                   <Input
                     placeholder="Email address"
                     {...field}
+                    type="email"
                     className="h-14"
                   />
                 </FormControl>
