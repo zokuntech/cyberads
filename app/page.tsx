@@ -7,6 +7,7 @@ const Hero = dynamic(() => import("@/components/Home/Hero"));
 const IntroComponent = dynamic(() => import("@/components/Home/Intro"), {
   ssr: false,
 });
+const Stats = dynamic(() => import("@/components/Home/Stats"));
 const Video = dynamic(() => import("@/components/Home/Video"), { ssr: false });
 const Steps = dynamic(() => import("@/components/Home/Steps"), { ssr: false });
 const Benefits = dynamic(() => import("@/components/Home/Benefits"), {
@@ -52,6 +53,7 @@ export default function Home() {
       <main className="flex  flex-col items-center justify-between bg-stone-900">
         <Hero />
         <IntroComponent />
+        <Stats />
         <Video />
         <Benefits />
         <Steps />
