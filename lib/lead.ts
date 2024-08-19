@@ -9,6 +9,7 @@ export async function saveIntoDB(email: string) {
       body: JSON.stringify({
         id: id,
         email: email,
+        timestamp: new Date().toUTCString(),
       }),
     });
 
