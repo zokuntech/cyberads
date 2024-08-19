@@ -24,6 +24,7 @@ import PolicyPopover from "@/components/policyPopover";
 import { toast } from "../ui/use-toast";
 import { useState } from "react";
 import { saveIntoDB } from "@/lib/lead";
+import { FullStory } from "@fullstory/browser";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -45,6 +46,14 @@ export function ProfileForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitted(true);
     const res = await saveIntoDB(values.email);
+    FullStory("trackEvent", {
+      name: "Email Capture submit",
+      properties: {
+        product: "signup fom",
+        quantity: 1,
+        email: values.email,
+      },
+    });
 
     if (res.status === 200) {
       toast({
