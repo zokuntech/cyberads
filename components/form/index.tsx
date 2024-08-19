@@ -46,7 +46,6 @@ export function ProfileForm() {
     setIsSubmitted(true);
     const res = await saveIntoDB(values.email);
 
-    console.log(res);
     if (res.status === 200) {
       toast({
         title: "Thank you!",
@@ -64,53 +63,56 @@ export function ProfileForm() {
 
   return (
     <>
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className=" w-[90%] lg:w-[80%] mt-4"
-        >
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-white text-lg">Email</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Email address"
-                    {...field}
-                    type="email"
-                    className="h-14"
-                  />
-                </FormControl>
-                <FormDescription>
-                  <Popover>
-                    <span className="flex items-center ">
-                      I agree to the
-                      <PopoverTrigger className="ml-1 text-blue-500">
-                        privacy policy
-                      </PopoverTrigger>
-                    </span>
-                    <PopoverContent
-                      className="h-[500px] w-[500px] overflow-scroll py-5"
-                      side="right"
-                    >
-                      <PolicyPopover />
-                    </PopoverContent>
-                  </Popover>
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button
-            type="submit"
-            className="mt-6 rounded-none px-12 bg-gradient-to-r text-black h-14 cursor-pointer from-orange-600 to-purple-600 text-white text-lg hover:from-black hover:to-black hover:border-white hover:border-2"
+      {isSubmitted && <h1>We'll get in touch soon.</h1>}
+      {!isSubmitted && (
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className=" w-[90%] lg:w-[80%] mt-4"
           >
-            Submit
-          </Button>
-        </form>
-      </Form>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white text-lg">Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Email address"
+                      {...field}
+                      type="email"
+                      className="h-14"
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    <Popover>
+                      <span className="flex items-center ">
+                        I agree to the
+                        <PopoverTrigger className="ml-1 text-blue-500">
+                          privacy policy
+                        </PopoverTrigger>
+                      </span>
+                      <PopoverContent
+                        className="h-[500px] w-[500px] overflow-scroll py-5"
+                        side="right"
+                      >
+                        <PolicyPopover />
+                      </PopoverContent>
+                    </Popover>
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              type="submit"
+              className="mt-6 rounded-none px-12 bg-gradient-to-r text-black h-14 cursor-pointer from-orange-600 to-purple-600 text-white text-lg hover:from-black hover:to-black hover:border-white hover:border-2"
+            >
+              Submit
+            </Button>
+          </form>
+        </Form>
+      )}
     </>
   );
 }
