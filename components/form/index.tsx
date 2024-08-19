@@ -44,6 +44,10 @@ export function ProfileForm() {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    toast({
+      title: "Thank you!",
+      description: "We'll be in touch soon",
+    });
     setIsSubmitted(true);
     const res = await saveIntoDB(values.email);
     FullStory("trackEvent", {
@@ -55,12 +59,7 @@ export function ProfileForm() {
       },
     });
 
-    if (res.status === 200) {
-      toast({
-        title: "Thank you!",
-        description: "We'll be in touch soon",
-      });
-    } else {
+    if (res.status !== 200) {
       toast({
         title: "Uh oh there was a problem",
         description: "There was a problem with your request.",
