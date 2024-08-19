@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { Toaster } from "@/components/ui/toaster";
 import Head from "next/head";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 // Sections for home page
 const Hero = dynamic(() => import("@/components/Home/Hero"));
@@ -59,7 +60,7 @@ export default function Home() {
         <Steps />
         <Form />
         <Toaster />
-        {/* <GoogleTagManager gtmId="AW-808416131" /> */}
+        <GoogleTagManager gtmId="AW-808416131" />
       </main>
     </>
   );
